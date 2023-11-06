@@ -55,9 +55,9 @@ body {
 
 .hero-banner-img {
   position: absolute;
-  right: 40px;
+  right: -50px;
   top: 0px;
-  width: 700px;
+  width: 600px;
   height: 900px;
   margin-top: -330px;
 
@@ -141,4 +141,8 @@ body {
   .exercise-card {
     width: 280px;
   }
+}
+
+.red-E {
+  color:#FF2625;
 }

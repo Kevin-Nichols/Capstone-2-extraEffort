@@ -20,6 +20,7 @@ const Navbar = () => {
                       margin: '0 20px'}} 
         />
       </Link>
+
       <Stack direction="row"
              gap="40px"
              fontSize="24px"
@@ -31,12 +32,14 @@ const Navbar = () => {
                        borderBottom: '3px solid #ff2625'}}>
           Home
         </Link>
+
         <a href="#exercises" style={{
           textDecoration: 'none', 
           color: '#3a1212'}}>
             Exercises
         </a>
       </Stack>
+
     </Stack>
   )
 }

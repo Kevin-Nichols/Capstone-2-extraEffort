@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link'
 import { Stack } from '@mui/material';
 
 import Logo from '../assets/images/Logo.png';
@@ -45,20 +46,20 @@ const Navbar = () => {
           Home
         </Link>
 
-        <a href="#exercises" 
+        <HashLink to="/#exercises" 
            style={{
             textDecoration: 'none', 
             color: '#3a1212'
            }}>
             Exercises
-        </a>
-        <a href="#search" 
+        </HashLink>
+        <HashLink to="/#search" 
            style={{
             textDecoration: 'none', 
             color: '#3a1212'
            }}>
             Search ⌕
-        </a>
+        </HashLink>
       </Stack>
 
     </Stack>

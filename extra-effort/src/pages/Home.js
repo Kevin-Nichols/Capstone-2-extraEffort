@@ -5,6 +5,7 @@ import Exercises from '../components/Exercises';
 import SearchExercises from '../components/SearchExercises';
 import HeroBanner from '../components/HeroBanner';
 
+//Home component. Creates state for exercises and bodyPart. Renders HeroBanner, SearchExercises and Exercises. Passes props to SearchExercises and Exercises.
 const Home = () => {
   const [exercises, setExercises] = useState([]);
   const [bodyPart, setBodyPart] = useState('all');
@@ -12,15 +13,19 @@ const Home = () => {
   return (
     <Box>
       <HeroBanner />
+
       <SearchExercises 
         setExercises={setExercises} 
         bodyPart={bodyPart} 
-        setBodyPart={setBodyPart} />
-        
+        setBodyPart={setBodyPart} 
+      />
+
       <Exercises 
         exercises={exercises} 
         setExercises={setExercises} 
-        bodyPart={bodyPart} />
+        bodyPart={bodyPart} 
+      />
+      
     </Box>
   );
 };

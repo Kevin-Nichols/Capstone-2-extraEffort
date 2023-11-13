@@ -7,28 +7,38 @@ import BodyPart from './BodyPart';
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
+
+//Creates a clickable left arrow to scroll left.
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <Typography onClick={() => scrollPrev()} className="right-arrow">
+    <Typography 
+      onClick={() => scrollPrev()} 
+      className="right-arrow">
       <img src={LeftArrowIcon} alt="right-arrow" />
     </Typography>
   );
 };
 
+//Creates a clickable right arrow to scroll right.
 const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
 
   return (
-    <Typography onClick={() => scrollNext()} className="left-arrow">
+    <Typography 
+      onClick={() => scrollNext()} 
+      className="left-arrow">
       <img src={RightArrowIcon} alt="right-arrow" />
     </Typography>
   );
 };
 
+//Creates a horizontal scroll bar to scroll through exercise cards that are passed to it. Props come from where it is rendered in the SearchExercises component and the SimilarExercises component. 
 const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
-  <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+  <ScrollMenu 
+    LeftArrow={LeftArrow} 
+    RightArrow={RightArrow}>
     {data.map((item) => (
       <Box
         key={item.id || item}

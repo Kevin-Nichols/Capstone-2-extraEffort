@@ -7,6 +7,7 @@ import Detail from '../components/Detail';
 import ExerciseVideos from '../components/ExerciseVideos';
 import SimilarExercises from '../components/SimilarExercises';
 
+//ExerciseDetail component. Sets several states and pulls an id parameter. Renders the Details component, ExerciseVideos and SimilarExercises components. Passes props to all three components. 
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
@@ -14,6 +15,7 @@ const ExerciseDetail = () => {
   const [equipmentExercises, setEquipmentExercises] = useState([]);
   const { id } = useParams();
 
+  //Hook to fetch several types of data from both APIs. 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -21,17 +23,21 @@ const ExerciseDetail = () => {
       const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
 
+      //Details on a specific exercise id.
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
       setExerciseDetail(exerciseDetailData);
 
+      //Videos on a specific exercise name.
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name} exercise`, youtubeOptions);
       setExerciseVideos(exerciseVideosData.contents);
 
+      //The target muscle used in the specific exercise.
       const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
       setTargetMuscleExercises(targetMuscleExercisesData);
 
-      const equimentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
-      setEquipmentExercises(equimentExercisesData);
+      //The equipment used for a specific exercise.
+      const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+      setEquipmentExercises(equipmentExercisesData);
     };
 
     fetchExercisesData();
@@ -41,13 +47,19 @@ const ExerciseDetail = () => {
 
   return (
     <Box sx={{ mt: { lg: '96px', xs: '60px' } }}>
+
       <Detail exerciseDetail={exerciseDetail} />
+      
       <ExerciseVideos 
         exerciseVideos={exerciseVideos} 
-        name={exerciseDetail.name} />
+        name={exerciseDetail.name} 
+      />
+
       <SimilarExercises 
         targetMuscleExercises={targetMuscleExercises} 
-        equipmentExercises={equipmentExercises} />
+        equipmentExercises={equipmentExercises} 
+      />
+      
     </Box>
   );
 };

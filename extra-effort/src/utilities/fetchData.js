@@ -1,3 +1,4 @@
+//Utility for fetching data from both APIs. You will need an API key for both APIs. Place them in your .env file using the variable names below.
 export const exerciseOptions = {
   method: 'GET',
   headers: {

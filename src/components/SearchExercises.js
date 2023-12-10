@@ -21,6 +21,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   }, []);
 
   //Function for search button. Fetches exercises and limits to 200 results. Filters by search value and checks to see if the value is a name, target, equipment or body part.
+  // Time complexity is O(n) where n is the number of items being filtered. All other operations are O(1).
   const handleSearch = async () => {
     if (search) {
       const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=200', exerciseOptions);

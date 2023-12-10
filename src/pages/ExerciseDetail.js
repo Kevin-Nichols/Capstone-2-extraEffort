@@ -7,7 +7,8 @@ import Detail from '../components/Detail';
 import ExerciseVideos from '../components/ExerciseVideos';
 import SimilarExercises from '../components/SimilarExercises';
 
-//ExerciseDetail component. Sets several states and pulls an id parameter. Renders the Details component, ExerciseVideos and SimilarExercises components. Passes props to all three components. 
+//ExerciseDetail component. Sets several states and pulls an id parameter. Renders the Details component, ExerciseVideos and SimilarExercises components. Passes props to all three components.
+//Time complexity O(1) for fetching operations. O(n + m + p + q) for JSON parsing.
 const ExerciseDetail = () => {
   const [exerciseDetail, setExerciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);

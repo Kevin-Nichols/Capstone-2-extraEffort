@@ -15,6 +15,7 @@ export const youtubeOptions = {
   },
 };
 
+//Time complexity of fetchData is O(n) where n is the size of the JSON data in the response.
 export const fetchData = async (url, options) => {
   const res = await fetch(url, options);
   const data = await res.json();

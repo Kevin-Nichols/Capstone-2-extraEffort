@@ -53,6 +53,7 @@ const Navbar = () => {
            }}>
             Exercises
         </HashLink>
+
         <HashLink to="/#search" 
            style={{
             textDecoration: 'none', 
@@ -60,6 +61,7 @@ const Navbar = () => {
            }}>
             Search ⌕
         </HashLink>
+        
       </Stack>
 
     </Stack>
